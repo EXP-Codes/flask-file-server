@@ -1,7 +1,6 @@
 #!/bin/bash
 # ------------------------
 # 设置本地域名解析
-# （把测试环境的域名解析到本地局域网 IP，不能为 127.0.0.1）
 #  (此脚本需要 sudo 执行，语法仅适用于 mac 系统)
 # sudo bin/set_dns.sh
 # ------------------------
@@ -18,10 +17,6 @@ if [ `grep -c "${DOMAIN}" ${DNS_FILE}` -ne '0' ];then
 else
     echo "${LOCAL_IP} ${DOMAIN}" >> ${DNS_FILE}
 fi
-
-# 修改 bb-iam-bam-admin 模块的 docker-compose DNS 解析
-echo "LOCAL_DNS=${LOCAL_IP}" > ${ENV_FILE}
-
 
 echo "${LOCAL_IP} ${DOMAIN}"
 echo "Finish ."

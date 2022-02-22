@@ -19,9 +19,10 @@ services:
       # 所有配置项都可以通过环境变量配置，不用修改配置文件
       # - ./app/conf/settings.yml:/app/conf/settings.yml
       - ./app/files:/app/files
+      - ./app/logs:/app/logs
     ports: 
-      - 9527:9527
       - 8080:8080
+      - 9527:9527
     networks: 
       flask:
         ipv4_address: 172.168.40.2
