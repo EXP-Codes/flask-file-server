@@ -1,0 +1,40 @@
+version: '2'
+services:
+  flask-svc:
+    container_name: flask-svc
+    hostname: FLASK_SVC
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      ENV: production                       # 运行环境
+      DEBUG: 'False'                        # 调试模式
+      SERVER_NAME: 'flask.local.com:9527'   # 服务名
+      APPLICATION_NAME: Flask File Server   # 应用名称
+      LOGIN_USERNAME: admin                 # 默认登录账号
+      LOGIN_PASSWORD: 123456                # 默认登录密码
+      SECRET_KEY: UAV2tFWAuhBRjZEDERKK      # 用于 Cookie 签名，防篡改（默认值为随机字符串，建议为固定值，否则每次重启服务都需要重新登录）
+      PERMANENT_SESSION_LIFETIME: 30        # 会话过期时间（天）
+    volumes:
+      # 所有配置项都可以通过环境变量配置，不用修改配置文件
+      # - ./app/conf/settings.yml:/app/conf/settings.yml
+      - ./app/files:/app/files
+    ports: 
+      - 9527:9527
+      - 8080:8080
+    networks: 
+      flask:
+        ipv4_address: 172.168.40.2
+    extra_hosts:
+      - "flask.local.com:127.0.0.1" 
+    restart: on-failure
+
+
+networks:
+  flask:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet:  172.168.40.0/24
+          gateway: 172.168.40.1

@@ -1,0 +1,45 @@
+# -----------------------------------
+# 以下为 Flask 所有的配置和默认值
+# 一般只需要关注有注释的配置项即可
+# -----------------------------------
+
+APPLICATION:
+  ENV: <%= ENV["ENV"] or 'production' %>                                      # 运行环境： development 或 production
+  DEBUG: <%= ENV["DEBUG"] or False %>                                         # 调试模式
+  TESTING: <%= ENV["TESTING"] or False %>
+  PREFERRED_URL_SCHEME: <%= ENV["PREFERRED_URL_SCHEME"] or 'http' %>          # http/https 协议
+  APPLICATION_ROOT: <%= ENV["APPLICATION_ROOT"] or '/' %>                     # web 根路径
+  APPLICATION_NAME: <%= ENV["APPLICATION_NAME"] or 'Flask File Server' %>     # 应用名称
+  SERVER_NAME: <%= ENV["SERVER_NAME"] or '0.0.0.0:9527' %>                    # 监听服务（若通过 docker 运行，IP 部分必须配置 0.0.0.0）
+  LOGIN_USERNAME: <%= ENV["LOGIN_USERNAME"] or 'admin' %>                     # 默认登录账号
+  LOGIN_PASSWORD: <%= ENV["LOGIN_PASSWORD"] or '123456' %>                    # 默认登录密码
+
+COOKIE:
+  SECRET_KEY: <%= ENV["SECRET_KEY"] %>                                        # 用于 Cookie 签名，防篡改（默认值为随机字符串，建议为固定值，否则每次重启服务都需要重新登录）
+  PERMANENT_SESSION_LIFETIME: <%= ENV["PERMANENT_SESSION_LIFETIME"] or 31 %>  # Cookie 有效期（天）
+  SESSION_COOKIE_NAME: <%= ENV["SESSION_COOKIE_NAME"] or 'session' %>
+  SESSION_COOKIE_DOMAIN: <%= ENV["SESSION_COOKIE_DOMAIN"] %>
+  SESSION_COOKIE_PATH: <%= ENV["SESSION_COOKIE_PATH"] %>
+  SESSION_COOKIE_HTTPONLY: <%= ENV["SESSION_COOKIE_HTTPONLY"] or True %>
+  SESSION_COOKIE_SECURE: <%= ENV["SESSION_COOKIE_SECURE"] or False %>
+  SESSION_COOKIE_SAMESITE: <%= ENV["SESSION_COOKIE_SAMESITE"] %>
+  SESSION_REFRESH_EACH_REQUEST: <%= ENV["SESSION_REFRESH_EACH_REQUEST"] or True %>
+  MAX_COOKIE_SIZE: <%= ENV["MAX_COOKIE_SIZE"] or 4093 %>
+
+CONTENT:
+  BASEDIR: <%= ENV["BASEDIR"] %>                                              # 上传文件的存储路径（必须使用绝对路径）
+  MAX_CONTENT_LENGTH: <%= ENV["MAX_CONTENT_LENGTH"] %>
+  JSON_AS_ASCII: <%= ENV["JSON_AS_ASCII"] or True %>
+  JSON_SORT_KEYS: <%= ENV["JSON_SORT_KEYS"] or True %>
+  JSONIFY_PRETTYPRINT_REGULAR: <%= ENV["JSONIFY_PRETTYPRINT_REGULAR"] or False %>
+  JSONIFY_MIMETYPE: <%= ENV["JSONIFY_MIMETYPE"] or 'application/json' %>
+  TEMPLATES_AUTO_RELOAD: <%= ENV["TEMPLATES_AUTO_RELOAD"] %>
+
+OTHER:
+  PROPAGATE_EXCEPTIONS: <%= ENV["PROPAGATE_EXCEPTIONS"] %> 
+  PRESERVE_CONTEXT_ON_EXCEPTION: <%= ENV["PRESERVE_CONTEXT_ON_EXCEPTION"] %> 
+  USE_X_SENDFILE: <%= ENV["USE_X_SENDFILE"] or False %>
+  SEND_FILE_MAX_AGE_DEFAULT: <%= ENV["SEND_FILE_MAX_AGE_DEFAULT"] %> 
+  TRAP_BAD_REQUEST_ERRORS: <%= ENV["TRAP_BAD_REQUEST_ERRORS"] %> 
+  TRAP_HTTP_EXCEPTIONS: <%= ENV["TRAP_HTTP_EXCEPTIONS"] or False %>
+  EXPLAIN_TEMPLATE_LOADING: <%= ENV["EXPLAIN_TEMPLATE_LOADING"] or False %>
