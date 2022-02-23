@@ -15,7 +15,7 @@ APPLICATION:
   LOGIN_PASSWORD: <%= ENV["LOGIN_PASSWORD"] or '123456' %>                    # 默认登录密码
 
 COOKIE:
-  SECRET_KEY: <%= ENV["SECRET_KEY"] %>                                        # 用于 Cookie 签名，防篡改（默认值为随机字符串，建议为固定值，否则每次重启服务都需要重新登录）
+  SECRET_KEY: <%= ENV["SECRET_KEY"] or 'It should be an any fixed value' %>   # 用于 Cookie 签名，防篡改（默认值为随机字符串，建议为固定值，否则每次重启服务都需要重新登录）
   PERMANENT_SESSION_LIFETIME: <%= ENV["PERMANENT_SESSION_LIFETIME"] or 31 %>  # Cookie 有效期（天）
   SESSION_COOKIE_NAME: <%= ENV["SESSION_COOKIE_NAME"] or 'session' %>
   SESSION_COOKIE_DOMAIN: <%= ENV["SESSION_COOKIE_DOMAIN"] %>
