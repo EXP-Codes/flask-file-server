@@ -37,7 +37,7 @@
 5. 在 hosts 添加 `{your_IP}  flask.local.com` 域名解析
 6. 访问 [http://flask.local.com](http://flask.local.com)，默认账密为 `admin / 123456`
 
-由于 docker 运行的架构模式为 nginx -> uwsgi -> flask，所以无法通过 IP 访问（跨域问题），默认使用 `flask.local.com` 作为访问入口，需要手动为其添加 DNS 解析，解析到本地、局域网、公网均可。
+由于 docker 运行的架构模式为 nginx -> uwsgi -> flask，所以无法通过 IP 访问（跨域问题），默认使用 `flask.local.com` 作为访问入口，需要手动为其添加 DNS 解析，解析到本地、局域网、公网均可。**若要修改你自己的域名/端口，请全局搜索并替换域名/端口。**
 
 
 > 若不想下载 Github 仓库，可以直接使用 docker hub 的镜像 [expm02/flask-file-server:latest](https://hub.docker.com/repository/docker/expm02/flask-file-server#)
@@ -98,5 +98,6 @@ flask-file-server
 - 《[uWSGI - Flask 中文文档](https://dormousehole.readthedocs.io/en/latest/deploying/uwsgi.html)》
 - 《[使用 uWSGI 运行 flask 项目详解](https://cloud.tencent.com/developer/article/1609621)》
 - 《[在 Ubuntu 上使用 Nginx 部署 Flask 应用](https://www.oschina.net/translate/serving-flask-with-nginx-on-ubuntu)》
+- 《[Django 部署时为什么要用 uWSGI与 Nginx? 以及 WSGI，uwsgi等协议](https://www.cnblogs.com/luodaxia/p/12023492.html)》
 - 《[uwsgi uwsgi flask app and nginx gives 404 not found](https://stackoverflow.com/questions/70214790/uwsgi-uwsgi-flask-app-and-nginx-gives-404-not-found)》
 - 《[All routes except "/" return 404 from Nginx running Flask WSGI](https://askubuntu.com/questions/1173951/all-routes-except-return-404-from-nginx-running-flask-wsgi)》

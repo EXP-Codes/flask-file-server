@@ -9,7 +9,7 @@ services:
     environment:
       ENV: production                       # 运行环境
       DEBUG: 'False'                        # 调试模式
-      SERVER_NAME: 'flask.local.com:9527'   # 服务名
+      SERVER_NAME: 'flask.local.com:9527'   # 服务名（不能用 IP，请自行添加本地 hosts，可以解析到本地或云服务器 IP）
       APPLICATION_NAME: Flask File Server   # 应用名称
       LOGIN_USERNAME: admin                 # 默认登录账号
       LOGIN_PASSWORD: 123456                # 默认登录密码
@@ -26,7 +26,7 @@ services:
       flask:
         ipv4_address: 172.168.40.2
     extra_hosts:
-      - "flask.local.com:127.0.0.1" 
+      - "flask.local.com:127.0.0.1"         # docker 内部的域名解析，总是解析到 127.0.0.1 即可
     restart: on-failure
 
 
