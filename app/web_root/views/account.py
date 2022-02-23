@@ -8,6 +8,7 @@ from settings import settings
 account = Blueprint('account', __name__)
 
 
+@account.route("/")
 @account.route('/login', methods=["GET", "POST"])
 def login():
     if request.method == "GET":

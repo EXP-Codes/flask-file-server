@@ -22,9 +22,9 @@ RUN python -m pip install -r /app/requirements.txt
 # 拷贝项目文件
 COPY ./app /app
 COPY ./nginx/flask.conf /etc/nginx/conf.d/flask.conf
+RUN rm -f /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 
-EXPOSE 8080
+EXPOSE 80
 WORKDIR /app
 ENTRYPOINT [ "./entrypoint.sh" ]
-# CMD [ "/usr/bin/python", "main.py" ]

@@ -21,8 +21,7 @@ services:
       - ./app/files:/app/files
       - ./app/logs:/app/logs
     ports: 
-      - 8080:8080
-      - 9527:9527
+      - 80:80
     networks: 
       flask:
         ipv4_address: 172.168.40.2

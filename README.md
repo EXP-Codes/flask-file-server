@@ -39,12 +39,6 @@
 > 若不想下载 Github 仓库，可以直接使用 docker hub 的镜像 [expm02/flask-file-server:latest](https://hub.docker.com/repository/docker/expm02/flask-file-server#)
 
 
-
-; / 根路径没有自动跳转到 /index
-; 502 网关错误是 sock 权限问题
-
-
-
 <details>
 <summary><b>Docker 相关脚本说明</b></summary>
 <br/>
