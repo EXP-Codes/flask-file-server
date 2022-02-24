@@ -37,7 +37,7 @@
 5. 在 hosts 添加 `{your_IP}  flask.local.com` 域名解析
 6. 访问 [http://flask.local.com](http://flask.local.com)，默认账密为 `admin / 123456`
 
-由于 docker 运行的架构模式为 nginx -> uwsgi -> flask，所以无法通过 IP 访问（跨域问题），默认使用 `flask.local.com` 作为访问入口，需要手动为其添加 DNS 解析，解析到本地、局域网、公网均可。**若要修改你自己的域名/端口，请全局搜索并替换域名/端口。**
+由于 docker 运行的架构模式为 nginx -> uwsgi -> flask，所以无法通过 IP 访问（跨域问题），默认使用 `flask.local.com` 作为访问入口，需要手动为其添加 DNS 解析，解析到本地、局域网、公网均可。**若要修改你自己的域名/端口，请全局搜索并替换域名/端口，然后使用 [`bin/build.sh`](./bin/build.sh) 重新构建镜像。**
 
 
 > 若不想下载 Github 仓库，可以直接使用 docker hub 的镜像 [expm02/flask-file-server:latest](https://hub.docker.com/repository/docker/expm02/flask-file-server#)
