@@ -6,7 +6,7 @@
 
 REGISTRY="registry.hub.docker.com"
 NAMESPACE="expm02"
-VERSION=$(date "+%s")
+VERSION=$(date "+%Y%m%d%H")
 
 
 function deploy_image() {
